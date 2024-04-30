@@ -2,34 +2,61 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "API Documentation",
+    "title": "API Monichat",
     "description": "Documentation for the API endpoints"
   },
   "paths": {
-    "/api/data": {
+    "/api": {
       "get": {
-        "tags": ["Data"],
-        "summary": "Get data from the database",
+        "tags": ["List All"],
+        "summary": "Get all data from the API",
         "responses": {
           "200": {
-            "description": "Successful operation",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "id": {
-                    "type": "integer"
-                  },
-                  "name": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api?page=1": {
+      "get": {
+        "tags": ["List Per Page"],
+        "summary": "Get data from the API with pagination",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/pacient": {
+      "get": {
+        "tags": ["List Pacients - Code and Name"],
+        "summary": "Get patient data from the API",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/api/pacient?page=1": {
+      "get": {
+        "tags": ["List Pacients - Code and Name | Per Page"],
+        "summary": "Get patient data from the API with pagination",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": ["Not Found"],
+        "summary": "",
+        "responses": {
+          "200": {
+            "description": "Successful operation"
           }
         }
       }
