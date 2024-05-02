@@ -1,6 +1,5 @@
 const dbconfig = require('./configDatabase')
 const oracledb = require('oracledb')
-require('dotenv').config()
 
 oracledb.outFormat = oracledb.OUT_FORMAT_OBJECT
 

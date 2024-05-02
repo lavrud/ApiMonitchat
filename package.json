@@ -1,6 +1,7 @@
 {
   "name": "apichatbot",
   "version": "1.0.0",
+  "description": "",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -20,6 +21,5 @@
     "sequelize": "^6.37.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.0"
-  },
-  "description": ""
+  }
 }

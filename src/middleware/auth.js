@@ -1,17 +1,21 @@
-// const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
 
-// module.exports = (req, res, next) => {
-//   const token = req.header('Authorization');
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers['authorization']
+  const token = authHeader && authHeader.split(' ')[1]
 
-//   if (!token) {
-//     return res.status(401).json({ message: 'Authorization header is required' });
-//   }
+  if (token == null) {
+    return res.sendStatus(401, 'Não autorizado') // Unauthorized
+  }
 
-//   try {
-//     const decoded = jwt.verify(token, 'your_secret_key');
-//     req.user = decoded.user;
-//     next();
-//   } catch (error) {
-//     res.status(401).json({ message: 'Invalid token' });
-//   }
-// };
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
+    if (err) {
+      return res.sendStatus(403, 'Acesso proibido') // Forbidden
+    }
+
+    req.user = user
+    next()
+  })
+}
+
+module.exports = { authenticateToken }
