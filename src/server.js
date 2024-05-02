@@ -10,6 +10,6 @@ app.use(express.json())
 app.use(router)
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${BASE_URL}:${PORT}`)
+  console.log(`Server running on port ${BASE_URL}:${PORT}/api`)
   console.log(`Server running on port ${BASE_URL}:${PORT}/api/docs`)
 })

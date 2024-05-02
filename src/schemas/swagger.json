@@ -2,13 +2,15 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "API Monichat",
+    "title": "API Monichat - SCMV",
     "description": "Documentation for the API endpoints"
   },
   "paths": {
     "/api": {
       "get": {
-        "tags": ["List All"],
+        "tags": [
+          "List Pacients"
+        ],
         "summary": "Get all data from the API",
         "responses": {
           "200": {
@@ -19,7 +21,9 @@
     },
     "/api?page=1": {
       "get": {
-        "tags": ["List Per Page"],
+        "tags": [
+          "List Pacients"
+        ],
         "summary": "Get data from the API with pagination",
         "responses": {
           "200": {
@@ -30,7 +34,9 @@
     },
     "/api/pacient": {
       "get": {
-        "tags": ["List Pacients - Code and Name"],
+        "tags": [
+          "List Pacients"
+        ],
         "summary": "Get patient data from the API",
         "responses": {
           "200": {
@@ -41,19 +47,10 @@
     },
     "/api/pacient?page=1": {
       "get": {
-        "tags": ["List Pacients - Code and Name | Per Page"],
+        "tags": [
+          "List Pacients"
+        ],
         "summary": "Get patient data from the API with pagination",
-        "responses": {
-          "200": {
-            "description": "Successful operation"
-          }
-        }
-      }
-    },
-    "/": {
-      "get": {
-        "tags": ["Not Found"],
-        "summary": "",
         "responses": {
           "200": {
             "description": "Successful operation"
