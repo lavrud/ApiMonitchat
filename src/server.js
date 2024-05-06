@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const router = require('./routes/router')
+const router = require('./app/routes/router')
 
 const PORT = process.env.PORT
 const BASE_URL = process.env.BASE_URL

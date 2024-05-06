@@ -1,8 +1,8 @@
-const { SelectPerPage } = require('../models/dataModel')
+const { selectAll } = require('../models/dataModel')
 
-async function getApiData(req, res) {
+const getApiData = async (req, res) => {
   try {
-    const data = await SelectPerPage(req)
+    const data = await selectAll(req)
     const apiData = data.map((row) => ({
       CD_PACIENTE: row.CD_PACIENTE,
       NM_PACIENTE: row.NM_PACIENTE,

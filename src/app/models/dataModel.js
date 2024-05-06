@@ -1,6 +1,6 @@
 const { executeQuery } = require('../config/connection')
 
-async function SelectPerPage(req, tableName = 'vdic_paciente_monitchat') {
+const selectAll = async (req, tableName = 'vdic_paciente_monitchat') => {
   const page = req.query.page || 1
   const limit = 100
   const offset = (page - 1) * limit
@@ -12,4 +12,4 @@ async function SelectPerPage(req, tableName = 'vdic_paciente_monitchat') {
   return data.rows
 }
 
-module.exports = { SelectPerPage }
+module.exports = { selectAll }
