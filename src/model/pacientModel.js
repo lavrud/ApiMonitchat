@@ -7,11 +7,8 @@ const SelectPerPagePacient = async (
   const page = req.query.page || 1
   const limit = 100
   const offset = (page - 1) * limit
-
   const sql = `SELECT * FROM ${tableName} OFFSET ${offset} ROWS FETCH NEXT ${limit} ROWS ONLY`
-
   const data = await executeQuery(sql)
-
   return data.rows
 }
 
