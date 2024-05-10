@@ -2,9 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 // Token JWT
-const { authUser } = require('../controller/authUserController')
+// const { authentication } = require('../middleware/auth')
 
-router.get('/api/auth', authUser)
+// router.get('/api/auth', authentication)
 
 // Aplicação API Monichat
 // const { redirectRoute } = require('../controller/redirectRoute')

@@ -17,15 +17,17 @@ if (process.platform === 'win32') {
 oracledb.initOracleClient(clientOpts)
 oracledb.autoCommit = true
 
+const user = dbconfig.user
 const password = dbconfig.password
+const connectString = dbconfig.connectString
 
 const executeQuery = async (sql) => {
   let connection
   try {
     connection = await oracledb.getConnection({
-      user: dbconfig.user,
+      user: user,
       password: password,
-      connectString: dbconfig.connectString
+      connectString: connectString
     })
 
     const result = await connection.execute(sql)
