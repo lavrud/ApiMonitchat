@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
+    "version": "1.0.0",
     "title": "Api Monichat - SCMV",
-    "description": "Api de agendamentos de pacientes da Santa Casa de Vitória",
-    "version": "1.0.0"
+    "description": "Api de agendamentos de pacientes da Santa Casa de Vitória"
   },
   "servers": [
     {
@@ -14,12 +14,25 @@
     }
   ],
   "paths": {
-    "/api/auth": {
+    "/api/generate-token": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Não autorizado"
+          }
+        }
+      }
+    },
+    "/api/verify-token": {
       "get": {
         "description": "",
         "parameters": [
           {
-            "name": "user",
+            "name": "authorization",
             "in": "header",
             "schema": {
               "type": "string"
@@ -30,8 +43,8 @@
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "401": {
+            "description": "Não autorizado"
           }
         }
       }
@@ -39,12 +52,24 @@
     "/api": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Não autorizado"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Erro Interno do Servidor"
           }
         }
       }
@@ -52,12 +77,24 @@
     "/api/pacient": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Não autorizado"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Erro Interno do Servidor"
           }
         }
       }
@@ -65,14 +102,40 @@
     "/api/patient/future-appointments": {
       "get": {
         "description": "",
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
           },
+          "401": {
+            "description": "Não autorizado"
+          },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Erro Interno do Servidor"
           }
         }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "description": "Enter your JWT token in the format 'Bearer <token>'"
+      },
+      "BearerAuth": {
+        "type": "Bearer",
+        "name": "Authorization",
+        "in": "header"
       }
     }
   }

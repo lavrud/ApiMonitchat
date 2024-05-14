@@ -2,30 +2,43 @@ const express = require('express')
 const router = express.Router()
 
 // Token JWT
-// const { authentication } = require('../middleware/auth')
+const {
+  generateToken,
+  verifyToken
+} = require('../controller/jwtTokenController')
+const { authenticate, checkUsername } = require('../middleware/authMiddleware')
 
-// router.get('/api/auth', authentication)
+// Rota para gerar token JWT
+router.get('/api/generate-token', checkUsername, generateToken)
 
-// Aplicação API Monichat
-// const { redirectRoute } = require('../controller/redirectRoute')
+// Rota para verificar token JWT
+router.get('/api/verify-token', verifyToken)
+
+// Rotas da aplicação API Monichat
 const { allPacients } = require('../controller/allPacientsController')
 const { getPacient } = require('../controller/patientController')
 const {
   futureAppointments
 } = require('../controller/futureAppointmentsController')
 
-// Rota de redirecionamento
-// router.get('/', redirectRoute)
+// Rota da API para obter todos os pacientes
+router.get('/api', authenticate, allPacients)
 
-// Rota da API
-router.get('/api', allPacients)
-router.get('/api/pacient', getPacient)
-router.get('/api/patient/future-appointments', futureAppointments)
+// Rota da API para obter um paciente específico
+router.get('/api/pacient', authenticate, getPacient)
+
+// Rota da API para obter os próximos agendamentos de um paciente
+router.get(
+  '/api/patient/future-appointments',
+  authenticate,
+  futureAppointments
+)
 
 // Documentação Swagger OpenAPI
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('../documentation/swagger.json')
 
+// Rota para acessar a documentação Swagger
 router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 module.exports = router
