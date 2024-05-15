@@ -11,22 +11,15 @@ const doc = {
   },
   host: 'localhost:5000',
   schemes: ['http', 'https'],
-  securityDefinitions: {
-    BearerAuth: {
-      type: 'Bearer',
-      name: 'Authorization',
-      in: 'header',
-    }
-  },
   components: {
-    securitySchemes:{
+    securitySchemes: {
       bearerAuth: {
         type: 'http',
         scheme: 'bearer',
         description: "Enter your JWT token in the format 'Bearer <token>'"
-        }
+      }
     }
-}
+  }
 }
 
 const outputFile = './swagger.json'

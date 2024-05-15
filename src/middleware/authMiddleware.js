@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const privateKey = process.env.SECRET_KEY
 const privateUserKey = process.env.USER_KEY
 
-const checkUsername = (req, res, next) => {
+const authUser = (req, res, next) => {
   const { username } = req.body
 
   if (username !== privateUserKey) {
@@ -27,4 +27,4 @@ const authenticate = async (req, res, next) => {
   }
 }
 
-module.exports = { authenticate, checkUsername }
+module.exports = { authUser, authenticate }

@@ -131,11 +131,6 @@
         "type": "http",
         "scheme": "bearer",
         "description": "Enter your JWT token in the format 'Bearer <token>'"
-      },
-      "BearerAuth": {
-        "type": "Bearer",
-        "name": "Authorization",
-        "in": "header"
       }
     }
   }

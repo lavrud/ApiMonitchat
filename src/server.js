@@ -36,8 +36,10 @@ app.use(cors())
 
 // router
 const router = require('./routes/router')
-
 app.use(router)
+
+const { default: helmet } = require('helmet')
+app.use(helmet())
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${BASE_URL}:${PORT}${URL_API}`)
