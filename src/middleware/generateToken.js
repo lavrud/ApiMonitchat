@@ -4,13 +4,7 @@ const { v4: uuidv4 } = require('uuid')
 const privateKey = process.env.SECRET_KEY
 
 const generateToken = async (req, res) => {
-  /* 
-    #swagger.ignore = true
-    #swagger.tags = ['Monichat']
-    #swagger.security = [{
-    "bearerAuth": []
-    }] 
-  */
+  // #swagger.ignore = true
   const user = { sub: uuidv4(), username: process.env.USER_KEY }
   const expiresIn = '1d'
   const token = jwt.sign(user, privateKey, { expiresIn })

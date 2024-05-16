@@ -1,12 +1,6 @@
 const { SelectPerPagePacient } = require('../model/pacientModel')
 
 const getPacient = async (req, res) => {
-  /* 
-    #swagger.tags = ['Monichat']
-    #swagger.security = [{
-    "bearerAuth": []
-    }] 
-  */
   try {
     const pacientData = await SelectPerPagePacient(req)
 
@@ -19,7 +13,6 @@ const getPacient = async (req, res) => {
       })
 
       res.json({ pacient })
-      
     } else {
       res.json({ pacient: [] })
     }
@@ -27,6 +20,15 @@ const getPacient = async (req, res) => {
     console.error('Error executing query:', error)
     res.status(500).send('Erro ao obter os dados.')
   }
+  /*
+  
+    #swagger.tags = ['Monichat']
+    
+    #swagger.security = [{
+      "bearerAuth": []
+    }]
+
+  */
 }
 
 module.exports = { getPacient }

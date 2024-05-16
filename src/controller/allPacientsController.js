@@ -1,12 +1,6 @@
 const { selectAllPacients } = require('../model/allPacientsModel')
 
 const allPacients = async (req, res) => {
-  /* 
-    #swagger.tags = ['Monichat']
-    #swagger.security = [{
-      "bearerAuth": []
-    }]
-  */
   try {
     const AllPacients = await selectAllPacients(req)
     const allPacients = AllPacients.map((allpacients) => ({
@@ -30,6 +24,15 @@ const allPacients = async (req, res) => {
     console.error(error.message)
     res.status(500).send('Erro ao obter os dados.')
   }
+  /*
+  
+    #swagger.tags = ['Monichat']
+    
+    #swagger.security = [{
+      "bearerAuth": []
+    }]
+
+  */
 }
 
 module.exports = { allPacients }

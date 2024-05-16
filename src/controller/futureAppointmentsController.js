@@ -1,12 +1,6 @@
 const { getFutureAppointments } = require('../model/futureAppointments')
 
 const futureAppointments = async (req, res) => {
-  /* 
-    #swagger.tags = ['Monichat']
-    #swagger.security = [{
-    "bearerAuth": []
-    }] 
-  */
   try {
     const appointmentsData = await getFutureAppointments(req)
 
@@ -28,6 +22,15 @@ const futureAppointments = async (req, res) => {
     console.error('Error executing query:', error)
     return res.status(500).send('Erro ao obter os dados.')
   }
+  /*
+  
+    #swagger.tags = ['Monichat']
+    
+    #swagger.security = [{
+      "bearerAuth": []
+    }]
+
+  */
 }
 
 module.exports = { futureAppointments }
