@@ -1,6 +1,12 @@
 const { selectAllPacients } = require('../model/allPacientsModel')
 
 const allPacients = async (req, res) => {
+  /* 
+    #swagger.tags = ['Monichat']
+    #swagger.security = [{
+      "bearerAuth": []
+    }]
+  */
   try {
     const AllPacients = await selectAllPacients(req)
     const allPacients = AllPacients.map((allpacients) => ({

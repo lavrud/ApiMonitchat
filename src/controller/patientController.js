@@ -1,6 +1,12 @@
 const { SelectPerPagePacient } = require('../model/pacientModel')
 
 const getPacient = async (req, res) => {
+  /* 
+    #swagger.tags = ['Monichat']
+    #swagger.security = [{
+    "bearerAuth": []
+    }] 
+  */
   try {
     const pacientData = await SelectPerPagePacient(req)
 

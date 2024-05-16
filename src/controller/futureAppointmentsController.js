@@ -1,6 +1,12 @@
 const { getFutureAppointments } = require('../model/futureAppointments')
 
 const futureAppointments = async (req, res) => {
+  /* 
+    #swagger.tags = ['Monichat']
+    #swagger.security = [{
+    "bearerAuth": []
+    }] 
+  */
   try {
     const appointmentsData = await getFutureAppointments(req)
 

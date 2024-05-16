@@ -7,50 +7,18 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5000/"
+      "url": "http://localhost:5000"
     },
     {
-      "url": "https://localhost:5000/"
+      "url": "https://localhost:5000"
     }
   ],
   "paths": {
-    "/api/generate-token": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Não autorizado"
-          }
-        }
-      }
-    },
-    "/api/verify-token": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Não autorizado"
-          }
-        }
-      }
-    },
     "/api": {
       "get": {
+        "tags": [
+          "Monichat"
+        ],
         "description": "",
         "parameters": [
           {
@@ -71,11 +39,19 @@
           "500": {
             "description": "Erro Interno do Servidor"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/pacient": {
       "get": {
+        "tags": [
+          "Monichat"
+        ],
         "description": "",
         "parameters": [
           {
@@ -96,11 +72,19 @@
           "500": {
             "description": "Erro Interno do Servidor"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
-    "/api/patient/future-appointments": {
+    "/api/appointments": {
       "get": {
+        "tags": [
+          "Monichat"
+        ],
         "description": "",
         "parameters": [
           {
@@ -121,7 +105,12 @@
           "500": {
             "description": "Erro Interno do Servidor"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
@@ -130,6 +119,7 @@
       "bearerAuth": {
         "type": "http",
         "scheme": "bearer",
+        "bearerFormat": "JWT",
         "description": "Enter your JWT token in the format 'Bearer <token>'"
       }
     }

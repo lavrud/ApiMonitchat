@@ -9,13 +9,20 @@ const doc = {
     title: 'Api Monichat - SCMV',
     description: 'Api de agendamentos de pacientes da Santa Casa de Vitória'
   },
-  host: 'localhost:5000',
-  schemes: ['http', 'https'],
+  servers: [
+    {
+      url: 'http://localhost:5000'
+    },
+    {
+      url: 'https://localhost:5000'
+    }
+  ],
   components: {
     securitySchemes: {
       bearerAuth: {
         type: 'http',
         scheme: 'bearer',
+        bearerFormat: 'JWT',
         description: "Enter your JWT token in the format 'Bearer <token>'"
       }
     }
