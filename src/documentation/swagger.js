@@ -6,7 +6,7 @@ const swaggerAutogen = require('swagger-autogen')({
 const doc = {
   info: {
     version: '1.0.0',
-    title: 'Api Monichat - SCMV',
+    title: 'Api Monitchat - SCMV',
     description: 'Api de agendamentos de pacientes da Santa Casa de Vitória'
   },
   servers: [
