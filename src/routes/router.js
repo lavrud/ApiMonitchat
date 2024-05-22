@@ -1,5 +1,5 @@
-const server = require('express')
-const router = server.Router()
+const express = require('express')
+const router = express.Router()
 
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('../documentation/swagger.json')
