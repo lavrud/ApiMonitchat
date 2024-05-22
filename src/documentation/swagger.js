@@ -11,10 +11,10 @@ const doc = {
   },
   servers: [
     {
-      url: 'http://localhost:5000'
+      url: 'http://localhost:3436'
     },
     {
-      url: 'https://localhost:5000'
+      url: 'https://localhost:3436'
     }
   ],
   components: {
