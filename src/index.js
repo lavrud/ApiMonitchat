@@ -10,11 +10,7 @@ app.use(express.json())
 
 // cors
 const cors = require('cors')
-app.use(cors({
-  origin: '*',
-  methods: ['GET'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(cors())
 
 // helmet
 const helmet = require('helmet')
@@ -24,18 +20,14 @@ app.use(helmet())
 const router = require('./routes/router')
 app.use(router)
 
-
 // Port configuration
-const PORT = process.env.PORT
+const PORT = process.env.PORT_DEV || process.env.PORT_PROD
 
 // Base URL configuration
-const BASE_URL = process.env.BASE_URL
-
-// API URL configuration
-const URL_API = process.env.URL_API
+const BASE_URL = process.env.BASE_URL_DEV || process.env.BASE_URL_PROD
 
 // server
-const server = app.listen(PORT, () => {
-  console.log(`Server running on port ${BASE_URL}:${PORT}${URL_API}`)
-  console.log(`Server running on port ${BASE_URL}:${PORT}${URL_API}/docs`)
+app.listen(PORT, () => {
+  console.log(`Server running on ${BASE_URL}:${PORT}${process.env.URL_API}`)
+  console.log(`Swagger docs: ${BASE_URL}:${PORT}/docs`)
 })

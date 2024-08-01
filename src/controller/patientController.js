@@ -1,6 +1,6 @@
-const { SelectPerPagePacient } = require('../model/pacientModel')
+const { SelectPerPagePacient } = require('../model/patientModel')
 
-const getPacient = async (req, res) => {
+const getPatient = async (req, res) => {
   try {
     const pacientData = await SelectPerPagePacient(req)
 
@@ -31,4 +31,4 @@ const getPacient = async (req, res) => {
   */
 }
 
-module.exports = { getPacient }
+module.exports = { getPatient }

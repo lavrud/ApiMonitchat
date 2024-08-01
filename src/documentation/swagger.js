@@ -9,14 +9,6 @@ const doc = {
     title: 'Api Monitchat - SCMV',
     description: 'Api de agendamentos de pacientes da Santa Casa de Vitória'
   },
-  servers: [
-    {
-      url: 'http://localhost:3436'
-    },
-    {
-      url: 'https://localhost:3436'
-    }
-  ],
   components: {
     securitySchemes: {
       bearerAuth: {

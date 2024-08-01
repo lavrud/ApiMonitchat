@@ -31,6 +31,7 @@ const executeQuery = async (sql) => {
     })
 
     const result = await connection.execute(sql)
+    console.log(result, 'Connecting with success')
 
     return result
   } catch (error) {

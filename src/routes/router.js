@@ -4,7 +4,7 @@ const router = express.Router()
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('../documentation/swagger.json')
 
-router.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+router.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 const { authenticate } = require('../middleware/authenticate')
 
@@ -14,12 +14,12 @@ const { verifyToken } = require('../middleware/verifyToken')
 router.post('/api/generate-token', generateToken)
 router.post('/api/verify-token', verifyToken)
 
-const { allPacients } = require('../controller/allPacientsController')
-const { getPacient } = require('../controller/patientController')
+const { allPatients } = require('../controller/allPatientsController')
+const { getPatient } = require('../controller/patientController')
 const { futureAppointments } = require('../controller/futureAppointmentsController')
 
-router.get('/api', authenticate, allPacients)
-router.get('/api/pacient', authenticate, getPacient)
-router.get('/api/appointments', authenticate, futureAppointments)
+router.get('/api', authenticate, allPatients)
+router.get('/api/patients', authenticate, getPatient)
+router.get('/api/appointments', futureAppointments)
 
 module.exports = router

@@ -7,10 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3436"
-    },
-    {
-      "url": "https://localhost:3436"
+      "url": "http://localhost:3000/"
     }
   ],
   "paths": {
@@ -20,15 +17,6 @@
           "Monichat"
         ],
         "description": "",
-        "parameters": [
-          {
-            "name": "authorization",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -47,7 +35,7 @@
         ]
       }
     },
-    "/api/pacient": {
+    "/api/patients": {
       "get": {
         "tags": [
           "Monichat"

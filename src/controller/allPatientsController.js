@@ -1,6 +1,6 @@
-const { selectAllPacients } = require('../model/allPacientsModel')
+const { selectAllPacients } = require('../model/allPatientsModel')
 
-const allPacients = async (req, res) => {
+const allPatients = async (req, res) => {
   try {
     const AllPacients = await selectAllPacients(req)
     const allPacients = AllPacients.map((allpacients) => ({
@@ -35,4 +35,4 @@ const allPacients = async (req, res) => {
   */
 }
 
-module.exports = { allPacients }
+module.exports = { allPatients }
